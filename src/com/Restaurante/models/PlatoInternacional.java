@@ -9,5 +9,6 @@ package com.Restaurante.models;
  * @author Usuario
  */
 public class PlatoInternacional {
+    private String paisOrigen;
     
 }
