@@ -9,6 +9,22 @@ package com.Restaurante.models;
  * @author Usuario
  */
 public class PlatoInternacional {
+    
+    /////////////////////////atributo
     private String paisOrigen;
     
+    ///////////////////////////////constructor
+    public PlatoInternacional(String paisOrigen) {
+        this.paisOrigen = paisOrigen;
+    }
+    
+    //////////////////////////////////////////metodo de acceso
+
+    public String getPaisOrigen() {
+        return paisOrigen;
+    }
+
+    public void setPaisOrigen(String paisOrigen) {
+        this.paisOrigen = paisOrigen;
+    }
 }

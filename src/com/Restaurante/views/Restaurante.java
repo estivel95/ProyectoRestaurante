@@ -8,12 +8,12 @@ package com.Restaurante.views;
  *
  * @author Usuario
  */
-public class FrmVenta extends javax.swing.JFrame {
+public class Restaurante extends javax.swing.JFrame {
 
     /**
-     * Creates new form FrmVenta
+     * Creates new form Restaurante
      */
-    public FrmVenta() {
+    public Restaurante() {
         initComponents();
     }
 
