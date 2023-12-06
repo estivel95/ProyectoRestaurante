@@ -15,10 +15,6 @@ public class Menu {
      private ArrayList<Plato> platos;
     
     //////////////////////////////////constructor
-    
-    public Menu (){
-    }
-    //////////////////////////////////constructor
     public Menu(String NombreRespresntativo, int AnoDeCreacion) {
         this.nombreRespresntativo = "Sabor menu";
         this.anoDeCreacion = 1998;

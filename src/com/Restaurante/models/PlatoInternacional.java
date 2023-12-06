@@ -8,17 +8,19 @@ package com.Restaurante.models;
  *
  * @author Usuario
  */
-public class PlatoInternacional {
+public class PlatoInternacional extends Plato{
     
     /////////////////////////atributo
     private String paisOrigen;
     
     ///////////////////////////////constructor
-    public PlatoInternacional(String paisOrigen) {
+
+    public PlatoInternacional(String paisOrigen, int id, String nombre, long costoDeFabricacion, String descripcion) {
+        super(id, nombre, costoDeFabricacion, descripcion);
         this.paisOrigen = paisOrigen;
     }
     
-    //////////////////////////////////////////metodo de acceso
+    ///////////////////////////metodo de acceso
 
     public String getPaisOrigen() {
         return paisOrigen;
@@ -27,4 +29,22 @@ public class PlatoInternacional {
     public void setPaisOrigen(String paisOrigen) {
         this.paisOrigen = paisOrigen;
     }
+    
+
+    @Override
+    public void calcularGanancia() {
+        
+    }
+
+    @Override
+    public void calcularPreciodeVenta() {
+        double ganancia = 0.30;
+        double precioVentaSinIva =  costoDeFabricacion * (1+ganancia);
+    }
+
+    @Override
+    public void sumarIva() {
+       
+    }
 }
+

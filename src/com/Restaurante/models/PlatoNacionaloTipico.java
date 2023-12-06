@@ -8,6 +8,25 @@ package com.Restaurante.models;
  *
  * @author Usuario
  */
-public class PlatoNacionaloTipico {
-    
+public class PlatoNacionaloTipico extends Plato{
+
+    public PlatoNacionaloTipico(int id, String nombre, long costoDeFabricacion, String descripcion) {
+        super(id, nombre, costoDeFabricacion, descripcion);
+    }
+
+    @Override
+    public void calcularGanancia() {
+        
+    }
+
+    @Override
+    public void calcularPreciodeVenta() {
+        
+    }
+
+    @Override
+    public void sumarIva() {
+
+    }
+
 }

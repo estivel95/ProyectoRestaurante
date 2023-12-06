@@ -8,29 +8,31 @@ package com.Restaurante.models;
  *
  * @author Usuario
  */
-public class Plato {
+public abstract class Plato {
     
     ////////////////////////////atributos
     private int id;
     private String nombre;
-    private long precioVenta;
-    private long costoDeFabricaacion;
+    private double precioVenta;
+    private double costoDeFabricacion;
     private String descripcion;
+
     
-    
-    ////////////////////////////////constructores
-    public Plato(){
-        
-    }
     
     //////////////////////////////constructores
 
-    public Plato(int id, String nombre, long precioVenta, long costoDeFabricaacion, String descripcion) {
+    public Plato(int id, String nombre, double costoDeFabricacion, String descripcion) {
         this.id = id;
         this.nombre = nombre;
-        this.precioVenta = precioVenta;
-        this.costoDeFabricaacion = costoDeFabricaacion;
+        this.precioVenta = calcularPrecioVenta();
+        this.costoDeFabricacion = costoDeFabricacion;
         this.descripcion = descripcion;
+    }
+    
+    private long calcularPrecioVenta(){
+        double ganancia = 0.25;
+        double precioprecioVentaSinIva = costoDeFabricacion * (1 + ganancia);
+        return (long) (precioprecioVentaSinIva * 1.19);
     }
     
     //////////////////////////////////////metodo de acceso
@@ -50,7 +52,7 @@ public class Plato {
         this.nombre = nombre;
     }
 
-    public long getPrecioVenta() {
+    public double getPrecioVenta() {
         return precioVenta;
     }
 
@@ -58,12 +60,12 @@ public class Plato {
         this.precioVenta = precioVenta;
     }
 
-    public long getCostoDeFabricaacion() {
-        return costoDeFabricaacion;
+    public double getCostoDeFabricacion() {
+        return costoDeFabricacion;
     }
 
-    public void setCostoDeFabricaacion(long costoDeFabricaacion) {
-        this.costoDeFabricaacion = costoDeFabricaacion;
+    public void setCostoDeFabricacion(long costoDeFabricacion) {
+        this.costoDeFabricacion = costoDeFabricacion;
     }
 
     public String getDescripcion() {
@@ -73,6 +75,8 @@ public class Plato {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    
-    
+    public abstract void calcularGanancia();
+    public abstract void calcularPreciodeVenta();
+    public abstract void sumarIva();
+
 }
