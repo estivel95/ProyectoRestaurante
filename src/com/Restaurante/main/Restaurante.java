@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.Restaurante.main;
+import com.Restaurante.models.Plato;
 
 /**
  *
@@ -10,4 +11,7 @@ package com.Restaurante.main;
  */
 public class Restaurante {
     
+    public static void main(String[] args) {
+        
+    }
 }

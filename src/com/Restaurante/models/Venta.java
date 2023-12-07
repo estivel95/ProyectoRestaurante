@@ -4,28 +4,47 @@
  */
 package com.Restaurante.models;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
  * @author Usuario
  */
 public class Venta {
+        private static int contadorCodigos = 1;
+    
     private int factura;
+    private double valorTotal;
+    private double valorGanancia;
     private Date fecha;
+    private List<Plato> platosVendidos;
     
-    /////////////////////////////constructores
-    public Venta (){
-        
-    }
-    
+
     //////////////////////////////////constructores
 
-    public Venta(int factura, Date fecha) {
-        this.factura = factura;
-        this.fecha = fecha;
+    public Venta(List<Plato> platosVendidos) {
+        this.factura = contadorCodigos++;
+        this.platosVendidos = platosVendidos;
+        calcularValoresVenta();
+        this.fecha = new Date();
     }
     
+    public double getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(double valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+
+    public double getValorGanancia() {
+        return valorGanancia;
+    }
+
     /////////////////////////////////metodo acceso
+    public void setValorGanancia(double valorGanancia) {    
+        this.valorGanancia = valorGanancia;
+    }
 
     public int getFactura() {
         return factura;
@@ -42,4 +61,10 @@ public class Venta {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
+
+    private void calcularValoresVenta() {
+        valorTotal = platosVendidos.stream().mapToDouble(Plato::getPrecioVenta).sum();
+        valorGanancia = platosVendidos.stream().mapToDouble(plato -> (plato.getPrecioVenta() - plato.getCostoFabricacion())).sum();
+    }
+
 }

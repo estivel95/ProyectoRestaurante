@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class Menu {
     private String nombreRespresntativo;
     private int anoDeCreacion;
-     private ArrayList<Plato> platos;
+    private ArrayList<Plato> platos;
     
     //////////////////////////////////constructor
     public Menu(String NombreRespresntativo, int AnoDeCreacion) {

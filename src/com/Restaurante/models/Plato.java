@@ -14,25 +14,19 @@ public abstract class Plato {
     private int id;
     private String nombre;
     private double precioVenta;
-    private double costoDeFabricacion;
+    private double costoFabricacion;
     private String descripcion;
 
     
     
     //////////////////////////////constructores
 
-    public Plato(int id, String nombre, double costoDeFabricacion, String descripcion) {
+    public Plato(int id, String nombre, double costoFabricacion, String descripcion) {
         this.id = id;
         this.nombre = nombre;
-        this.precioVenta = calcularPrecioVenta();
-        this.costoDeFabricacion = costoDeFabricacion;
+        this.costoFabricacion = costoFabricacion;
+        this.precioVenta = calcularPrecioVenta(); 
         this.descripcion = descripcion;
-    }
-    
-    private long calcularPrecioVenta(){
-        double ganancia = 0.25;
-        double precioprecioVentaSinIva = costoDeFabricacion * (1 + ganancia);
-        return (long) (precioprecioVentaSinIva * 1.19);
     }
     
     //////////////////////////////////////metodo de acceso
@@ -56,16 +50,16 @@ public abstract class Plato {
         return precioVenta;
     }
 
-    public void setPrecioVenta(long precioVenta) {
+    public void setPrecioVenta(double precioVenta) {
         this.precioVenta = precioVenta;
     }
 
-    public double getCostoDeFabricacion() {
-        return costoDeFabricacion;
+    public double getCostoFabricacion() {
+        return costoFabricacion;
     }
 
-    public void setCostoDeFabricacion(long costoDeFabricacion) {
-        this.costoDeFabricacion = costoDeFabricacion;
+    public void setCostoFabricacion(double costoDeFabricacion) {
+        this.costoFabricacion = costoDeFabricacion;
     }
 
     public String getDescripcion() {
@@ -75,8 +69,12 @@ public abstract class Plato {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    public abstract void calcularGanancia();
-    public abstract void calcularPreciodeVenta();
-    public abstract void sumarIva();
-
+    
+    public abstract double calcularGanancia();
+    
+    private long calcularPrecioVenta(){
+        double ganancia = calcularGanancia();
+        double precioVentaSinIVA = costoFabricacion + ganancia;
+        return (long) (precioVentaSinIVA * 1.19);
+    }
 }
