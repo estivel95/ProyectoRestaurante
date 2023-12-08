@@ -15,7 +15,13 @@ public class EstadoFinanciero {
     private double totalRecaudado;
     private double totalGanancias;
     
-        public Date getFechaGeneracion() {
+    public EstadoFinanciero(Date fechaGeneracion, double totalRecaudado, double totalGanancias) {
+        this.fechaGeneracion = fechaGeneracion;
+        this.totalRecaudado = totalRecaudado;
+        this.totalGanancias = totalGanancias;
+    }
+    
+    public Date getFechaGeneracion() {
         return fechaGeneracion;
     }
 
@@ -36,12 +42,6 @@ public class EstadoFinanciero {
     }
 
     public void setTotalGanancias(double totalGanancias) {
-        this.totalGanancias = totalGanancias;
-    }
-
-    public EstadoFinanciero(Date fechaGeneracion, double totalRecaudado, double totalGanancias) {
-        this.fechaGeneracion = fechaGeneracion;
-        this.totalRecaudado = totalRecaudado;
         this.totalGanancias = totalGanancias;
     }
 

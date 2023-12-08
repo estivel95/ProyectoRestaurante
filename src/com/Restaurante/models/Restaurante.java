@@ -25,14 +25,39 @@ public class Restaurante {
     ///////////////////////////////////////constructores
 
     public Restaurante(String nombre, String direccion, String telefono) {
-        this.nombre = "El Buen Sabor";
-        this.direccion = "Calle 69 n 35 a 163";
-        this.telefono = "878869862";
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.telefono = telefono;
         this.menu= new Menu ("comida ancestral", 2015);
         this.menus = new ArrayList<>();
         this.ventas = new ArrayList<>();
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
     
+    ///////////////////CRUD
     public String mostrarMenu(){
        return this.menu.mostrarMenu();
     }

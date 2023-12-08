@@ -11,7 +11,7 @@ import java.util.List;
  * @author Usuario
  */
 public class Venta {
-        private static int contadorCodigos = 1;
+    private static int contadorCodigos = 1;
     
     private int factura;
     private double valorTotal;
@@ -61,6 +61,8 @@ public class Venta {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
+    
+    
 
     private void calcularValoresVenta() {
         valorTotal = platosVendidos.stream().mapToDouble(Plato::getPrecioVenta).sum();
