@@ -10,27 +10,28 @@ package com.Restaurante.models;
  */
 public abstract class Plato {
     
+    ///////////////////////////////////////////////////////////
+    private static int contadorPlato =1;
+    
     ////////////////////////////atributos
-    private int id;
+    private long id;
     private String nombre;
     private double precioVenta;
     private double costoFabricacion;
-    private String descripcion;
 
-    
     
     //////////////////////////////constructores
 
-    public Plato(int id, String nombre, double costoFabricacion, String descripcion) {
-        this.id = id;
+    public Plato( String nombre, double costoFabricacion) {
+        this.id = Plato.contadorPlato;
         this.nombre = nombre;
         this.costoFabricacion = costoFabricacion;
         this.precioVenta = calcularPrecioVenta(); 
-        this.descripcion = descripcion;
+        contadorPlato++;
     }
     
     //////////////////////////////////////metodo de acceso
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -61,14 +62,6 @@ public abstract class Plato {
     public void setCostoFabricacion(double costoDeFabricacion) {
         this.costoFabricacion = costoDeFabricacion;
     }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
     
     public abstract double calcularGanancia();
     
@@ -76,5 +69,9 @@ public abstract class Plato {
         double ganancia = calcularGanancia();
         double precioVentaSinIVA = costoFabricacion + ganancia;
         return (long) (precioVentaSinIVA * 1.19);
+    }
+
+    public void setPaisOrigen(String text) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

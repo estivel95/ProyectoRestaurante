@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.Restaurante.models;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -17,12 +18,12 @@ public class Venta {
     private double valorTotal;
     private double valorGanancia;
     private Date fecha;
-    private List<Plato> platosVendidos;
+    private ArrayList<Plato> platosVendidos;
     
 
     //////////////////////////////////constructores
 
-    public Venta(List<Plato> platosVendidos) {
+    public Venta(ArrayList<Plato> platosVendidos) {
         this.factura = contadorCodigos++;
         this.platosVendidos = platosVendidos;
         calcularValoresVenta();
@@ -63,7 +64,6 @@ public class Venta {
     }
     
     
-
     private void calcularValoresVenta() {
         valorTotal = platosVendidos.stream().mapToDouble(Plato::getPrecioVenta).sum();
         valorGanancia = platosVendidos.stream().mapToDouble(plato -> (plato.getPrecioVenta() - plato.getCostoFabricacion())).sum();

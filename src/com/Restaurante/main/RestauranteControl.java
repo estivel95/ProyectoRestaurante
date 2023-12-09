@@ -8,11 +8,13 @@ import com.Restaurante.views.VentanaPrincipal;
 
 /**
  *
- * @author Usuario
+ * @author Brayan Diaz
+ * 
  */
 public class RestauranteControl {
     
     public static void main(String[] args) {
+        
         
         Restaurante restaurante = new Restaurante("El buen sabor", "calle 69 n 35 a 163", "8788623");
         

@@ -10,10 +10,10 @@ package com.Restaurante.models;
  */
 public class PlatoNacionaloTipico extends Plato{
 
-    public PlatoNacionaloTipico(int id, String nombre, long costoFabricacion, String descripcion) {
-        super(id, nombre, costoFabricacion, descripcion);
+    public PlatoNacionaloTipico(String nombre, double costoFabricacion) {
+        super(nombre, costoFabricacion);
     }
-
+    
     @Override
     public double calcularGanancia() {
         return getCostoFabricacion() * 0.25;

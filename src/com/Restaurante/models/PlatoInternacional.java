@@ -15,11 +15,11 @@ public class PlatoInternacional extends Plato{
     
     ///////////////////////////////constructor
 
-    public PlatoInternacional(String paisOrigen, int id, String nombre, double costoDeFabricacion, String descripcion) {
-        super(id, nombre, costoDeFabricacion, descripcion);
+    public PlatoInternacional(String paisOrigen, String nombre, double costoFabricacion) {
+        super(nombre, costoFabricacion);
         this.paisOrigen = paisOrigen;
     }
-    
+
     ///////////////////////////metodo de acceso
 
     public String getPaisOrigen() {

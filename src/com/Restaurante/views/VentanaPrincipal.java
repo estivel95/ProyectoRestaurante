@@ -57,10 +57,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         btnMostrarVenta = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        btnBuscarPlato = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        btnBuscarPla = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -68,10 +73,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, -1));
 
-        jPanel2.setBackground(new java.awt.Color(51, 153, 0));
+        jPanel2.setBackground(new java.awt.Color(94, 17, 213));
 
         LblNombreRestaurante.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
-        LblNombreRestaurante.setForeground(new java.awt.Color(0, 0, 0));
+        LblNombreRestaurante.setForeground(new java.awt.Color(255, 255, 255));
         LblNombreRestaurante.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LblNombreRestaurante.setText("Nombre de la tienda");
 
@@ -80,24 +85,24 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(188, Short.MAX_VALUE)
+                .addContainerGap(121, Short.MAX_VALUE)
                 .addComponent(LblNombreRestaurante)
-                .addGap(190, 190, 190))
+                .addGap(117, 117, 117))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(24, 24, 24)
                 .addComponent(LblNombreRestaurante)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 100));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 100));
 
-        jPanel3.setBackground(new java.awt.Color(255, 51, 51));
+        jPanel3.setBackground(new java.awt.Color(164, 22, 22));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnAgregarPlatoInternacional.setBackground(new java.awt.Color(255, 51, 51));
+        btnAgregarPlatoInternacional.setBackground(new java.awt.Color(164, 22, 22));
         btnAgregarPlatoInternacional.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnAgregarPlatoInternacionalMouseClicked(evt);
@@ -113,7 +118,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/Restaurante/imagen/comida  internacional.png"))); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Internacionales");
 
         javax.swing.GroupLayout btnAgregarPlatoInternacionalLayout = new javax.swing.GroupLayout(btnAgregarPlatoInternacional);
@@ -154,7 +159,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
 
-        btnAgregarPlatoNacionaloTipico.setBackground(new java.awt.Color(255, 51, 51));
+        btnAgregarPlatoNacionaloTipico.setBackground(new java.awt.Color(164, 22, 22));
         btnAgregarPlatoNacionaloTipico.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnAgregarPlatoNacionaloTipicoMouseClicked(evt);
@@ -170,7 +175,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/Restaurante/imagen/comida nacional o tipica.png"))); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Nacionales o Tipicos");
 
         javax.swing.GroupLayout btnAgregarPlatoNacionaloTipicoLayout = new javax.swing.GroupLayout(btnAgregarPlatoNacionaloTipico);
@@ -197,7 +202,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jPanel3.add(btnAgregarPlatoNacionaloTipico, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
-        btnMostrarMenu.setBackground(new java.awt.Color(255, 51, 51));
+        btnMostrarMenu.setBackground(new java.awt.Color(164, 22, 22));
         btnMostrarMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnMostrarMenuMouseClicked(evt);
@@ -213,7 +218,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/Restaurante/imagen/mostrar menu.png"))); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Menu");
 
         javax.swing.GroupLayout btnMostrarMenuLayout = new javax.swing.GroupLayout(btnMostrarMenu);
@@ -239,9 +244,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGap(0, 30, Short.MAX_VALUE))
         );
 
-        jPanel3.add(btnMostrarMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, 150, 160));
+        jPanel3.add(btnMostrarMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 150, 160));
 
-        btnMostrarVenta.setBackground(new java.awt.Color(255, 51, 51));
+        btnMostrarVenta.setBackground(new java.awt.Color(164, 22, 22));
         btnMostrarVenta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnMostrarVentaMouseClicked(evt);
@@ -256,12 +261,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/Restaurante/imagen/venta.png"))); // NOI18N
 
-        jLabel10.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel10.setText("MOSTRAR VENTA");
-
         jLabel11.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Venta");
 
         javax.swing.GroupLayout btnMostrarVentaLayout = new javax.swing.GroupLayout(btnMostrarVenta);
@@ -274,43 +275,107 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addComponent(jLabel4))
                     .addGroup(btnMostrarVentaLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel10))
-                    .addGroup(btnMostrarVentaLayout.createSequentialGroup()
                         .addGap(58, 58, 58)
                         .addComponent(jLabel11)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         btnMostrarVentaLayout.setVerticalGroup(
             btnMostrarVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnMostrarVentaLayout.createSequentialGroup()
-                .addComponent(jLabel10)
-                .addGap(13, 13, 13)
+                .addGap(37, 37, 37)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
-        jPanel3.add(btnMostrarVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, -1, -1));
+        jPanel3.add(btnMostrarVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("AGREGAR PLATOS");
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("MOSTRAR MENU");
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, -1, -1));
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("MOSTRAR VENTA");
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 40, -1, -1));
+
+        btnBuscarPlato.setBackground(new java.awt.Color(164, 22, 22));
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/Restaurante/imagen/comida.png"))); // NOI18N
+
+        jLabel14.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel14.setText("Bucar Plato");
+
+        javax.swing.GroupLayout btnBuscarPlatoLayout = new javax.swing.GroupLayout(btnBuscarPlato);
+        btnBuscarPlato.setLayout(btnBuscarPlatoLayout);
+        btnBuscarPlatoLayout.setHorizontalGroup(
+            btnBuscarPlatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnBuscarPlatoLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(btnBuscarPlatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel13))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+        btnBuscarPlatoLayout.setVerticalGroup(
+            btnBuscarPlatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnBuscarPlatoLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel14)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel3.add(btnBuscarPlato, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 230, 130, -1));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 700, 390));
+
+        btnBuscarPla.setBackground(new java.awt.Color(94, 17, 213));
+        btnBuscarPla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBuscarPlaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBuscarPlaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBuscarPlaMouseExited(evt);
+            }
+        });
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/Restaurante/imagen/comida.png"))); // NOI18N
+
+        javax.swing.GroupLayout btnBuscarPlaLayout = new javax.swing.GroupLayout(btnBuscarPla);
+        btnBuscarPla.setLayout(btnBuscarPlaLayout);
+        btnBuscarPlaLayout.setHorizontalGroup(
+            btnBuscarPlaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnBuscarPlaLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        btnBuscarPlaLayout.setVerticalGroup(
+            btnBuscarPlaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnBuscarPlaLayout.createSequentialGroup()
+                .addComponent(jLabel12)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(btnBuscarPla, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 0, 150, 100));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarPlatoNacionaloTipicoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarPlatoNacionaloTipicoMouseClicked
-        System.out.println("Agregar Plato nacional o Tipico");
+        AgregarPlatoNacionaloTipico ventanaAgregar = new AgregarPlatoNacionaloTipico(this, true, this.restaurante, this);
+        ventanaAgregar.setVisible(true);
     }//GEN-LAST:event_btnAgregarPlatoNacionaloTipicoMouseClicked
 
     private void btnAgregarPlatoNacionaloTipicoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarPlatoNacionaloTipicoMouseEntered
@@ -322,7 +387,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarPlatoNacionaloTipicoMouseExited
 
     private void btnAgregarPlatoInternacionalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarPlatoInternacionalMouseClicked
-        System.out.println("Agregar Plato Internacional");
+        AgregarPlatoInternacional ventanaAgregar = new AgregarPlatoInternacional(this, true, this.restaurante, this);
+        ventanaAgregar.setVisible(true);
     }//GEN-LAST:event_btnAgregarPlatoInternacionalMouseClicked
 
     private void btnAgregarPlatoInternacionalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarPlatoInternacionalMouseEntered
@@ -357,11 +423,23 @@ public class VentanaPrincipal extends javax.swing.JFrame {
        this.mouseEcited(btnMostrarVenta);
     }//GEN-LAST:event_btnMostrarVentaMouseExited
 
+    private void btnBuscarPlaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarPlaMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarPlaMouseClicked
+
+    private void btnBuscarPlaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarPlaMouseEntered
+        this.mouseEntered(btnBuscarPla);
+    }//GEN-LAST:event_btnBuscarPlaMouseEntered
+
+    private void btnBuscarPlaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarPlaMouseExited
+       this.mouseEcited(btnBuscarPla);
+    }//GEN-LAST:event_btnBuscarPlaMouseExited
+
     private void mouseEntered(JPanel panel){
         panel.setBackground(new Color(251,150,150));
     }
     private void mouseEcited(JPanel panel){
-         panel.setBackground(new Color(255,51,51));
+         panel.setBackground(new Color(164,22,22));
     }
 
 
@@ -369,11 +447,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel LblNombreRestaurante;
     private javax.swing.JPanel btnAgregarPlatoInternacional;
     private javax.swing.JPanel btnAgregarPlatoNacionaloTipico;
+    private javax.swing.JPanel btnBuscarPla;
+    private javax.swing.JPanel btnBuscarPlato;
     private javax.swing.JPanel btnMostrarMenu;
     private javax.swing.JPanel btnMostrarVenta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

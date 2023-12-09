@@ -5,8 +5,10 @@
 package com.Restaurante.views;
 
 import com.Restaurante.models.Plato;
+import com.Restaurante.models.PlatoInternacional;
 import com.Restaurante.models.PlatoNacionaloTipico;
 import com.Restaurante.models.Restaurante;
+import static java.awt.image.ImageObserver.SOMEBITS;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -14,14 +16,14 @@ import javax.swing.JOptionPane;
  *
  * @author Usuario
  */
-public class AgregarPlatoNacionaloTipico extends javax.swing.JDialog {
-    
+public class AgregarPlatoInternacional extends javax.swing.JDialog {
+
     private Restaurante restaurante;
     private VentanaPrincipal ventanaPrincipal;
     /**
-     * Creates new form AgregarPlato
+     * Creates new form AgregarPlatoInternacional
      */
-    public AgregarPlatoNacionaloTipico(java.awt.Frame parent, boolean modal, Restaurante restaurante,VentanaPrincipal ventana) {
+    public AgregarPlatoInternacional(java.awt.Frame parent, boolean modal,Restaurante restaurante,VentanaPrincipal ventana) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
@@ -32,8 +34,9 @@ public class AgregarPlatoNacionaloTipico extends javax.swing.JDialog {
         }
         this.restaurante = restaurante;
         this.ventanaPrincipal = ventana;
+        
+        
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -53,6 +56,8 @@ public class AgregarPlatoNacionaloTipico extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         btnVolver = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        txtPaisOrigen = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -68,7 +73,7 @@ public class AgregarPlatoNacionaloTipico extends javax.swing.JDialog {
         jPanel3.setBackground(new java.awt.Color(94, 17, 213));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/Restaurante/imagen/comida nacional o tipica.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/Restaurante/imagen/comida  internacional.png"))); // NOI18N
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 90));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 0, 100, 90));
@@ -115,7 +120,22 @@ public class AgregarPlatoNacionaloTipico extends javax.swing.JDialog {
         });
         jPanel2.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 110, 40));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 680, 360));
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Pais Origen");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, -1, -1));
+
+        txtPaisOrigen.setBackground(new java.awt.Color(164, 22, 22));
+        txtPaisOrigen.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtPaisOrigen.setForeground(new java.awt.Color(255, 255, 255));
+        txtPaisOrigen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPaisOrigenActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtPaisOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 230, 40));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 680, 340));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -130,7 +150,8 @@ public class AgregarPlatoNacionaloTipico extends javax.swing.JDialog {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         String Nombre = txtNombre.getText();
-        if(txtNombre.getText().isEmpty()){
+        String PaisOrigen = txtPaisOrigen.getText();
+        if(txtNombre.getText().isEmpty()||txtPaisOrigen.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Llene todos los campos ");
         }else{
             Plato plato = new PlatoNacionaloTipico(Nombre, SOMEBITS);
@@ -144,6 +165,10 @@ public class AgregarPlatoNacionaloTipico extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
+    private void txtPaisOrigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPaisOrigenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPaisOrigenActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -151,10 +176,12 @@ public class AgregarPlatoNacionaloTipico extends javax.swing.JDialog {
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtPaisOrigen;
     // End of variables declaration//GEN-END:variables
 }
