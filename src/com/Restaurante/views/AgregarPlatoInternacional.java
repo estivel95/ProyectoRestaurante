@@ -8,6 +8,7 @@ import com.Restaurante.models.Plato;
 import com.Restaurante.models.PlatoInternacional;
 import com.Restaurante.models.PlatoNacionaloTipico;
 import com.Restaurante.models.Restaurante;
+import java.awt.HeadlessException;
 import static java.awt.image.ImageObserver.SOMEBITS;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -58,6 +59,8 @@ public class AgregarPlatoInternacional extends javax.swing.JDialog {
         btnAgregar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         txtPaisOrigen = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txtcostoFabricacion = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -67,8 +70,8 @@ public class AgregarPlatoInternacional extends javax.swing.JDialog {
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Agregar Producto");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
+        jLabel1.setText("Agregar Plato Nacional o Tipico");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         jPanel3.setBackground(new java.awt.Color(94, 17, 213));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -76,7 +79,7 @@ public class AgregarPlatoInternacional extends javax.swing.JDialog {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/Restaurante/imagen/comida  internacional.png"))); // NOI18N
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 90));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 0, 100, 90));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 90));
 
@@ -96,7 +99,7 @@ public class AgregarPlatoInternacional extends javax.swing.JDialog {
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, -1, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, -1, -1));
 
         btnVolver.setBackground(new java.awt.Color(255, 51, 51));
         btnVolver.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -107,7 +110,7 @@ public class AgregarPlatoInternacional extends javax.swing.JDialog {
                 btnVolverActionPerformed(evt);
             }
         });
-        jPanel2.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 90, 40));
+        jPanel2.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, 90, 40));
 
         btnAgregar.setBackground(new java.awt.Color(255, 51, 51));
         btnAgregar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -118,12 +121,12 @@ public class AgregarPlatoInternacional extends javax.swing.JDialog {
                 btnAgregarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 110, 40));
+        jPanel2.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 110, 40));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Pais Origen");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, -1, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, -1, -1));
 
         txtPaisOrigen.setBackground(new java.awt.Color(164, 22, 22));
         txtPaisOrigen.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -135,7 +138,22 @@ public class AgregarPlatoInternacional extends javax.swing.JDialog {
         });
         jPanel2.add(txtPaisOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 230, 40));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 680, 340));
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Costo de Fabricacion");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, -1, -1));
+
+        txtcostoFabricacion.setBackground(new java.awt.Color(164, 22, 22));
+        txtcostoFabricacion.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtcostoFabricacion.setForeground(new java.awt.Color(255, 255, 255));
+        txtcostoFabricacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcostoFabricacionActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtcostoFabricacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 230, 40));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 680, 320));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -151,16 +169,22 @@ public class AgregarPlatoInternacional extends javax.swing.JDialog {
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         String Nombre = txtNombre.getText();
         String PaisOrigen = txtPaisOrigen.getText();
-        if(txtNombre.getText().isEmpty()||txtPaisOrigen.getText().isEmpty()){
+        if(txtNombre.getText().isEmpty()||txtPaisOrigen.getText().isEmpty()||txtcostoFabricacion.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Llene todos los campos ");
         }else{
-            Plato plato = new PlatoNacionaloTipico(Nombre, SOMEBITS);
-            if(this.restaurante.agregarPlato(plato)){
-               JOptionPane.showMessageDialog(this, "El plato "+Nombre + " ha sido agregado satisfactoriamente");
-               this.dispose();
+            try {
+                double costoFabricacion = Double.parseDouble(this.txtcostoFabricacion.getText());
+                Plato plato = new PlatoInternacional(PaisOrigen, Nombre, costoFabricacion, costoFabricacion);
+                if(this.restaurante.agregarPlato(plato)){
+                JOptionPane.showMessageDialog(this, "El plato "+Nombre + " ha sido agregado satisfactoriamente");
+                this.dispose();
             }else{
-               JOptionPane.showMessageDialog(this, "El plato "+Nombre+ "no ha sido agregado satisfactoriamente");
+               JOptionPane.showMessageDialog(this, "El plato "+Nombre + "no ha sido agregado satisfactoriamente");
                this.dispose();
+            }       
+            } catch (HeadlessException | NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Por favor ingrese un numero en el campo de texto ");
+                this.txtcostoFabricacion.setText("");
             }
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
@@ -168,6 +192,10 @@ public class AgregarPlatoInternacional extends javax.swing.JDialog {
     private void txtPaisOrigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPaisOrigenActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPaisOrigenActionPerformed
+
+    private void txtcostoFabricacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcostoFabricacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcostoFabricacionActionPerformed
 
 
 
@@ -177,11 +205,13 @@ public class AgregarPlatoInternacional extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtPaisOrigen;
+    private javax.swing.JTextField txtcostoFabricacion;
     // End of variables declaration//GEN-END:variables
 }

@@ -8,31 +8,48 @@ package com.Restaurante.models;
  *
  * @author Usuario
  */
+//public class PlatoInternacional extends Plato{
+//    
+//    /////////////////////////atributo
+//    private String paisOrigen;
+//    
+//    ///////////////////////////////constructor
+//
+//    public PlatoInternacional(String paisOrigen, String nombre, double costoFabricacion) {
+//        super(nombre, costoFabricacion);
+//        this.paisOrigen = paisOrigen;
+//    }
+//
+//    ///////////////////////////metodo de acceso
+//
+//    public String getPaisOrigen() {
+//        return paisOrigen;
+//    }
+//
+//    public void setPaisOrigen(String paisOrigen) {
+//        this.paisOrigen = paisOrigen;
+//    }
+//    
+//    @Override
+//    public double calcularGanancia() {
+//        return getCostoFabricacion() * 0.30;
+//    }
 public class PlatoInternacional extends Plato{
-    
-    /////////////////////////atributo
     private String paisOrigen;
-    
-    ///////////////////////////////constructor
 
-    public PlatoInternacional(String paisOrigen, String nombre, double costoFabricacion) {
-        super(nombre, costoFabricacion);
+    public PlatoInternacional(String paisOrigen) {
         this.paisOrigen = paisOrigen;
     }
 
-    ///////////////////////////metodo de acceso
-
-    public String getPaisOrigen() {
-        return paisOrigen;
-    }
-
-    public void setPaisOrigen(String paisOrigen) {
+    public PlatoInternacional(String paisOrigen, String nombre, double costoFabricacion, double precioVenta) {
+        super(nombre, costoFabricacion, precioVenta);
         this.paisOrigen = paisOrigen;
     }
-    
+
     @Override
-    public double calcularGanancia() {
-        return getCostoFabricacion() * 0.30;
+    public double calcularGanancia(double costoDeFabricacion) {
+        return costoDeFabricacion * 0.30;
     }
+    
 }
 

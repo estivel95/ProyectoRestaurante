@@ -5,21 +5,24 @@
 package com.Restaurante.views;
 
 import com.Restaurante.models.Restaurante;
+import com.Restaurante.models.Venta;
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
  *
- * @author Usuario
+ * @author Brayan Diaz
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
     
     private Restaurante restaurante;    
+    private final ArrayList<Venta> vendidos;
     /**
      * Creates new form VentanaPrincipal2
      */
-    public VentanaPrincipal(Restaurante restaurante) {
+    public VentanaPrincipal(Restaurante restaurante){
         initComponents();
         this.setLocationRelativeTo(null);
         try{
@@ -27,8 +30,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }catch(Exception e){
             
         }
-        
         this.restaurante = restaurante;
+        this.vendidos= restaurante.getVentas();
         this.LblNombreRestaurante.setText(this.restaurante.getNombre());
     }
 
@@ -64,8 +67,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnBuscarPlato = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        btnBuscarPla = new javax.swing.JPanel();
+        btnActualizarPlato = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -231,7 +237,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                         .addGap(22, 22, 22)
                         .addComponent(jLabel3))
                     .addGroup(btnMostrarMenuLayout.createSequentialGroup()
-                        .addGap(58, 58, 58)
+                        .addGap(49, 49, 49)
                         .addComponent(jLabel8)))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
@@ -307,6 +313,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 40, -1, -1));
 
         btnBuscarPlato.setBackground(new java.awt.Color(164, 22, 22));
+        btnBuscarPlato.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBuscarPlatoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBuscarPlatoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBuscarPlatoMouseExited(evt);
+            }
+        });
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/Restaurante/imagen/comida.png"))); // NOI18N
 
@@ -336,39 +353,71 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jPanel3.add(btnBuscarPlato, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 230, 130, -1));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 700, 390));
-
-        btnBuscarPla.setBackground(new java.awt.Color(94, 17, 213));
-        btnBuscarPla.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnActualizarPlato.setBackground(new java.awt.Color(164, 22, 22));
+        btnActualizarPlato.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnBuscarPlaMouseClicked(evt);
+                btnActualizarPlatoMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnBuscarPlaMouseEntered(evt);
+                btnActualizarPlatoMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnBuscarPlaMouseExited(evt);
+                btnActualizarPlatoMouseExited(evt);
             }
         });
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/Restaurante/imagen/comida.png"))); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/Restaurante/imagen/actualizar.png"))); // NOI18N
 
-        javax.swing.GroupLayout btnBuscarPlaLayout = new javax.swing.GroupLayout(btnBuscarPla);
-        btnBuscarPla.setLayout(btnBuscarPlaLayout);
-        btnBuscarPlaLayout.setHorizontalGroup(
-            btnBuscarPlaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnBuscarPlaLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+        jLabel16.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel16.setText("Actualizar");
+
+        javax.swing.GroupLayout btnActualizarPlatoLayout = new javax.swing.GroupLayout(btnActualizarPlato);
+        btnActualizarPlato.setLayout(btnActualizarPlatoLayout);
+        btnActualizarPlatoLayout.setHorizontalGroup(
+            btnActualizarPlatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnActualizarPlatoLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(btnActualizarPlatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel12))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
-        btnBuscarPlaLayout.setVerticalGroup(
-            btnBuscarPlaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnBuscarPlaLayout.createSequentialGroup()
+        btnActualizarPlatoLayout.setVerticalGroup(
+            btnActualizarPlatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnActualizarPlatoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel12)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(btnBuscarPla, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 0, 150, 100));
+        jPanel3.add(btnActualizarPlato, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, -1, 130));
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 700, 390));
+
+        jPanel4.setBackground(new java.awt.Color(94, 17, 213));
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/Restaurante/imagen/comida.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addComponent(jLabel15)
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50))
+        );
+
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 130, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -400,7 +449,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarPlatoInternacionalMouseExited
 
     private void btnMostrarMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMostrarMenuMouseClicked
-        System.out.println("Mostrar Menu");
+        MostrarMenu ventanaMenu = new MostrarMenu(this, true, this, this.restaurante);
+        ventanaMenu.setVisible(true);
     }//GEN-LAST:event_btnMostrarMenuMouseClicked
 
     private void btnMostrarMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMostrarMenuMouseEntered
@@ -412,7 +462,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMostrarMenuMouseExited
 
     private void btnMostrarVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMostrarVentaMouseClicked
-        System.out.println("Mostrar Venta");
+        MostraVenta ventanaVenta = new MostraVenta(this, true, this.restaurante, this);
+        ventanaVenta.setVisible(true);
     }//GEN-LAST:event_btnMostrarVentaMouseClicked
 
     private void btnMostrarVentaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMostrarVentaMouseEntered
@@ -423,31 +474,45 @@ public class VentanaPrincipal extends javax.swing.JFrame {
        this.mouseEcited(btnMostrarVenta);
     }//GEN-LAST:event_btnMostrarVentaMouseExited
 
-    private void btnBuscarPlaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarPlaMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscarPlaMouseClicked
+    private void btnBuscarPlatoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarPlatoMouseEntered
+       this.mouseEntered(btnBuscarPlato);
+    }//GEN-LAST:event_btnBuscarPlatoMouseEntered
 
-    private void btnBuscarPlaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarPlaMouseEntered
-        this.mouseEntered(btnBuscarPla);
-    }//GEN-LAST:event_btnBuscarPlaMouseEntered
+    private void btnBuscarPlatoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarPlatoMouseExited
+        this.mouseEcited(btnBuscarPlato);
+    }//GEN-LAST:event_btnBuscarPlatoMouseExited
 
-    private void btnBuscarPlaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarPlaMouseExited
-       this.mouseEcited(btnBuscarPla);
-    }//GEN-LAST:event_btnBuscarPlaMouseExited
+    private void btnBuscarPlatoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarPlatoMouseClicked
+        BuscarPlato ventanaBuscar = new BuscarPlato(this, true, this.restaurante, this);
+        ventanaBuscar.setVisible(true);
+    }//GEN-LAST:event_btnBuscarPlatoMouseClicked
+
+    private void btnActualizarPlatoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarPlatoMouseEntered
+        this.mouseEntered(btnActualizarPlato);
+    }//GEN-LAST:event_btnActualizarPlatoMouseEntered
+
+    private void btnActualizarPlatoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarPlatoMouseExited
+        this.mouseEcited(btnActualizarPlato);
+    }//GEN-LAST:event_btnActualizarPlatoMouseExited
+
+    private void btnActualizarPlatoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnActualizarPlatoMouseClicked
+        ActualizarPlato ventanaActualizar = new ActualizarPlato(this, true, this, this.restaurante);
+        ventanaActualizar.setVisible(true);
+    }//GEN-LAST:event_btnActualizarPlatoMouseClicked
 
     private void mouseEntered(JPanel panel){
         panel.setBackground(new Color(251,150,150));
     }
     private void mouseEcited(JPanel panel){
-         panel.setBackground(new Color(164,22,22));
+        panel.setBackground(new Color(164,22,22));
     }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LblNombreRestaurante;
+    private javax.swing.JPanel btnActualizarPlato;
     private javax.swing.JPanel btnAgregarPlatoInternacional;
     private javax.swing.JPanel btnAgregarPlatoNacionaloTipico;
-    private javax.swing.JPanel btnBuscarPla;
     private javax.swing.JPanel btnBuscarPlato;
     private javax.swing.JPanel btnMostrarMenu;
     private javax.swing.JPanel btnMostrarVenta;
@@ -457,6 +522,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -468,6 +535,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,6 +4,7 @@
  */
 package com.Restaurante.models;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -11,38 +12,38 @@ import java.util.Date;
  * @author Usuario
  */
 public class EstadoFinanciero {
-    private Date fechaGeneracion;
-    private double totalRecaudado;
-    private double totalGanancias;
     
-    public EstadoFinanciero(Date fechaGeneracion, double totalRecaudado, double totalGanancias) {
-        this.fechaGeneracion = fechaGeneracion;
-        this.totalRecaudado = totalRecaudado;
-        this.totalGanancias = totalGanancias;
+    
+    private ArrayList<Plato> platosVendidos;
+
+    public EstadoFinanciero(ArrayList<Plato> platosVendidos){
+        this.platosVendidos = platosVendidos;
+    }
+
+    EstadoFinanciero(Date fechaGeneracion, double totalGanancias, double totalRecaudado) {
     }
     
-    public Date getFechaGeneracion() {
-        return fechaGeneracion;
-    }
+    public double calcularTotalEstadoFinanciero(ArrayList<Plato> platosvendidos){
+        double sumartotal= 0;
+      
 
-    public void setFechaGeneracion(Date fechaGeneracion) {
-        this.fechaGeneracion = fechaGeneracion;
+    for(Plato p : platosvendidos ){
+        sumartotal=  p.getPrecioVenta()+ sumartotal;
+    }  
+        return sumartotal;
     }
-
-    public double getTotalRecaudado() {
-        return totalRecaudado;
-    }
-
-    public void setTotalRecaudado(double totalRecaudado) {
-        this.totalRecaudado = totalRecaudado;
-    }
-
-    public double getTotalGanancias() {
-        return totalGanancias;
-    }
-
-    public void setTotalGanancias(double totalGanancias) {
-        this.totalGanancias = totalGanancias;
+    
+    public String mostrarEstadoFinanciero(){
+        String estadoFinanciero = "";
+        for(int i=0;i<this.platosVendidos.size();i++){
+            Plato p = this.platosVendidos.get(i);
+            estadoFinanciero += p.toString()+"\n";
+        }
+        double total = calcularTotalEstadoFinanciero(platosVendidos);
+        estadoFinanciero += "\n" + "Total Recaudado : " + total + "\n";
+        estadoFinanciero += "Fecha Generacion Estado Financiero : " + new Date() + "\n";
+        
+        return estadoFinanciero;
     }
 
 }

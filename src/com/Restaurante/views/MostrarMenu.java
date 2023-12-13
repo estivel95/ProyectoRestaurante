@@ -4,27 +4,43 @@
  */
 package com.Restaurante.views;
 
+import com.Restaurante.models.Plato;
+import com.Restaurante.models.Restaurante;
+import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
- * @author Usuario
+ * @author Brayan Diaz
  */
 public class MostrarMenu extends javax.swing.JDialog {
-
+    
+    
+    private ArrayList<Plato> platos;
+    private VentanaPrincipal ventanaPrincipal;
+    private Restaurante restaurante;
     /**
      * Creates new form MostrarMenu
      */
-    public MostrarMenu(java.awt.Frame parent, boolean modal) {
+    public MostrarMenu(java.awt.Frame parent, boolean modal, VentanaPrincipal ventanaPrincipal, Restaurante restaurante) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
         try{
-            this.setIconImage(new ImageIcon(getClass().getResource("com/Restaurante/imagen/mostrar menu.png")).getImage());
-        }catch(Exception e){
+           this.setIconImage(new ImageIcon(getClass().getResource("/autonoma/ProyectoFinal/images/icons8-cash-100")).getImage());
+        }catch(Exception e)
+        {
             
         }
-        
+        this.restaurante= restaurante;
+        this.ventanaPrincipal = ventanaPrincipal;
+        this.platos = restaurante.obtenerTodosPlatos();
+        llenarTabla();
     }
 
     /**
@@ -36,24 +52,177 @@ public class MostrarMenu extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaMenu = new javax.swing.JTable();
+        btnEliminar = new javax.swing.JButton();
+        btnVolverMenu = new javax.swing.JButton();
+        btnActualizarPlato = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(94, 17, 213));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Menu");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, -1, -1));
+
+        jPanel3.setBackground(new java.awt.Color(94, 17, 213));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/Restaurante/imagen/comida.png"))); // NOI18N
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 90));
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 0, 100, 90));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 90));
+
+        jPanel2.setBackground(new java.awt.Color(164, 22, 22));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tablaMenu.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Nombre", "Precio", "Costo", "Ganancia"
+            }
+        ));
+        jScrollPane1.setViewportView(tablaMenu);
+
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, -1, 130));
+
+        btnEliminar.setBackground(new java.awt.Color(255, 51, 51));
+        btnEliminar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminar.setText("ELIMINAR");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, 100, 30));
+
+        btnVolverMenu.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnVolverMenu.setText("VOLVER");
+        btnVolverMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnVolverMenuMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnVolverMenuMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnVolverMenuMouseExited(evt);
+            }
+        });
+        btnVolverMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverMenuActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnVolverMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 260, -1, -1));
+
+        btnActualizarPlato.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnActualizarPlato.setText("Actualizar");
+        btnActualizarPlato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarPlatoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnActualizarPlato, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, -1, -1));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 680, 320));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        int fila = this.tablaMenu.getSelectedRow();
+        if(fila>=0){
+            Plato p = this.platos.get(fila);
+            int option = JOptionPane.showConfirmDialog(this, "¿Desea eliminar el plato "+p.getNombre()+" de forma permanente?");
+            if(option == 0){
+                this.restaurante.eliminarPlato(p.getId());
+                this.platos = this.restaurante.obtenerTodosPlatos();
+                this.llenarTabla();
+                JOptionPane.showMessageDialog(this, "El plato "+p.getNombre()+" fue eliminado de forma exitosa");
+            }
+        }else{
+            JOptionPane.showMessageDialog(this, "Por favor seleccione el plato que desea eliminar");
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
+    private void btnVolverMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMenuMouseEntered
+        
+    }//GEN-LAST:event_btnVolverMenuMouseEntered
+
+    private void btnActualizarPlatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarPlatoActionPerformed
+        int fila = this.tablaMenu.getSelectedRow();
+        if(fila>=0){
+            Plato p = this.platos.get(fila);
+            ActualizarPlato ventanaActualizar = new ActualizarPlato(ventanaPrincipal, true, ventanaPrincipal, restaurante);
+            ventanaActualizar.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(this, "Por favor seleccione el plato que desea eliminar");
+        }
+    }//GEN-LAST:event_btnActualizarPlatoActionPerformed
+
+    private void btnVolverMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverMenuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVolverMenuActionPerformed
+
+    private void btnVolverMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMenuMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVolverMenuMouseExited
+
+    private void btnVolverMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMenuMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_btnVolverMenuMouseClicked
+        
+    private void mouseEntered(JPanel panel){
+        panel.setBackground(new Color(255, 131, 7));
+    }
+    
+    private void mouseExited(JPanel panel){
+        panel.setBackground(new Color(240,240,240));
+    }
+
+    public void llenarTabla(){
+        DefaultTableModel modelDefault = new DefaultTableModel(new String[]{"Id","Nombre","Precio", "Costo"}, this.platos.size());
+        this.tablaMenu.setModel(modelDefault);
+        
+        TableModel dataModel = tablaMenu.getModel();
+        for (int i = 0; i < this.platos.size(); i++){
+            Plato plato = this.platos.get(i);
+            
+            dataModel.setValueAt(plato.getId(),i,0);
+            dataModel.setValueAt(plato.getNombre(),i,1);
+            dataModel.setValueAt(plato.getPrecioVenta(),i,2);
+            dataModel.setValueAt(plato.getCostoFabricacion(),i,3);           
+        }   
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizarPlato;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnVolverMenu;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tablaMenu;
     // End of variables declaration//GEN-END:variables
 }

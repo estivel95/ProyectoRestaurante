@@ -14,24 +14,34 @@ public abstract class Plato {
     private static int contadorPlato =1;
     
     ////////////////////////////atributos
-    private long id;
+    private int id;
     private String nombre;
     private double precioVenta;
     private double costoFabricacion;
 
     
     //////////////////////////////constructores
+    
+    public Plato() {
+        this.id = Plato.contadorPlato;
+        this.nombre = nombre;
+        this.precioVenta = precioVenta;
+        this.costoFabricacion = costoFabricacion;
+        contadorPlato++;
+    }
+    
+    
 
-    public Plato( String nombre, double costoFabricacion) {
+    public Plato( String nombre, double costoFabricacion,double precioVenta) {
         this.id = Plato.contadorPlato;
         this.nombre = nombre;
         this.costoFabricacion = costoFabricacion;
-        this.precioVenta = calcularPrecioVenta(); 
+        this.precioVenta = precioVenta; 
         contadorPlato++;
     }
     
     //////////////////////////////////////metodo de acceso
-    public long getId() {
+    public int getId() {
         return id;
     }
 
@@ -63,15 +73,12 @@ public abstract class Plato {
         this.costoFabricacion = costoDeFabricacion;
     }
     
-    public abstract double calcularGanancia();
+    public abstract double calcularGanancia(double costoDeFabricacion);
     
-    private long calcularPrecioVenta(){
-        double ganancia = calcularGanancia();
-        double precioVentaSinIVA = costoFabricacion + ganancia;
-        return (long) (precioVentaSinIVA * 1.19);
-    }
+//    private long calcularPrecioVenta(){
+//        double ganancia = calcularGanancia();
+//        double precioVentaSinIVA = costoFabricacion + ganancia;
+//        return (long) (precioVentaSinIVA * 1.19);
+//    }
 
-    public void setPaisOrigen(String text) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }

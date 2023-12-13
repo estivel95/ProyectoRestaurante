@@ -15,47 +15,43 @@ public class Menu {
     private ArrayList<Plato> platos;
     
     //////////////////////////////////constructor
-    public Menu(String NombreRespresntativo, int AnoDeCreacion) {
+
+    public Menu(String nombreRespresntativo, int anoDeCreacion, ArrayList<Plato> platos) {
         this.nombreRespresntativo = nombreRespresntativo;
         this.anoDeCreacion = anoDeCreacion;
-        this.platos=new ArrayList<>();
+        this.platos = platos;
     }
-    
-    
-    
+
     /////////////////////////////////////////////CRUD
     public boolean agregarPlato(Plato plato){
         return this.platos.add(plato);
     }
     
     public Plato buscarPlato(Plato plato){
-        
         for(int i=0;i<this.platos.size();i++){
-            Plato e = this.platos.get(i);
-            if(e.equals(plato)){
-                return e;
+            Plato p = this.platos.get(i);
+            if(p.equals(plato)){
+                return p;
             }
         }
         return null;   
     }
     
     public Plato buscarPlato(int id){
-        
         for(int i=0;i<this.platos.size();i++){
-            Plato e = this.platos.get(i);
-            if(e.getId() == id){
-                return e;
+            Plato p = this.platos.get(i);
+            if(p.getId() == id){
+                return p;
             }
         }
         return null;   
     }
     
     public Plato buscarPlato(String nombre){
-        
         for(int i=0;i<this.platos.size();i++){
-            Plato e = this.platos.get(i);
-            if(e.getNombre().equals(nombre)){
-                return e;
+            Plato p = this.platos.get(i);
+            if(p.getNombre().equals(nombre)){
+                return p;
             }
         }
         return null;   
@@ -63,16 +59,15 @@ public class Menu {
     
     private int buscarIndicePlato(int id){
         for(int i=0;i<this.platos.size();i++){
-            Plato e = this.platos.get(i);
-            if(e.getId() == id){
+            Plato p = this.platos.get(i);
+            if(p.getId() == id){
                 return i;
             }
         }
         return -1;  
     }
     
-    public Plato actualizarPlato(int id, Plato plato)
-    {
+    public Plato actualizarPlato(int id, Plato plato){
         int index = this.buscarIndicePlato(id);
         if(index>=0){
             return this.platos.set(index, plato);
@@ -81,8 +76,7 @@ public class Menu {
         }
     }    
         
-    public Plato eliminarPlato(int id){
-        
+    public Plato eliminarPlato(int id){   
     int index = this.buscarIndicePlato(id);
         if(index>=0){
             return this.platos.remove(index);
@@ -94,9 +88,12 @@ public class Menu {
     public String mostrarMenu(){
         String menu = "";
         for(int i=0;i<this.platos.size();i++){
-            Plato e = this.platos.get(i);
-            menu += e.toString()+"\n";
+            Plato p = this.platos.get(i);
+            menu += p.toString()+"\n";
         }
         return menu;
+    }
+    public ArrayList<Plato> getPlatos(){
+        return platos;
     }
 }
